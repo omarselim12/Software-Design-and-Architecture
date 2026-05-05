@@ -1,10 +1,3 @@
-"""
-Student Course Registration System
-Design Patterns Assignment
-Patterns used: Singleton, Prototype, Factory Method
-Language: Python
-"""
-
 from __future__ import annotations
 from abc import ABC, abstractmethod
 from copy import deepcopy
@@ -12,10 +5,7 @@ from datetime import datetime
 from typing import Dict, List
 
 
-# ============================================================
-# 1) SINGLETON PATTERN
-# Ensures that the whole system uses one shared logger instance.
-# ============================================================
+# 1) SINGLETON PATTERN: Ensures that the whole system uses one shared logger instance.
 
 class SystemLogger:
     _instance = None
@@ -38,11 +28,8 @@ class SystemLogger:
             print(log)
 
 
-# ============================================================
-# 2) PROTOTYPE PATTERN
-# Allows the system to clone existing course templates and modify
-# the copy instead of creating each course section from scratch.
-# ============================================================
+# 2) PROTOTYPE PATTERN: Allows the system to clone existing course templates and modify
+
 
 class CoursePrototype:
     def __init__(self, code: str, title: str, credit_hours: int, topics: List[str]):
@@ -70,11 +57,8 @@ class CoursePrototype:
         )
 
 
-# ============================================================
-# 3) FACTORY METHOD PATTERN
-# Creates different user account objects without making the client
-# code depend directly on concrete user classes.
-# ============================================================
+# 3) FACTORY METHOD PATTERN: Creates different user account objects without making the client
+
 
 class User(ABC):
     def __init__(self, name: str, user_id: str):
@@ -129,10 +113,7 @@ class AdminFactory(UserFactory):
     def create_user(self, name: str, user_id: str) -> User:
         return Admin(name, user_id)
 
-
-# ============================================================
 # Course Registration System
-# ============================================================
 
 class CourseRegistrationSystem:
     def __init__(self):
@@ -159,9 +140,7 @@ class CourseRegistrationSystem:
             course.display()
 
 
-# ============================================================
 # Client Code
-# ============================================================
 
 def main() -> None:
     system = CourseRegistrationSystem()
